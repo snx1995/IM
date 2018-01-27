@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_menu_add_friend"
+        android:title="@string/main_menu_add_friends"/>
+    <item
+        android:id="@+id/main_menu_my_info"
+        android:title="@string/main_menu_my_info" />
+    <item
+        android:id="@+id/main_menu_logout"
+        android:title="@string/main_menu_logout" />
+    <item
+        android:id="@+id/main_menu_exit"
+        android:title="@string/main_menu_exit" />
+</menu>
