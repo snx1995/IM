@@ -21,11 +21,11 @@ import java.util.List;
 
 public class MessageActivity extends AppCompatActivity {
 
-    private final String TAG = "IMDBG";
-    private String[] friendNames = {"Tom","Jerry","John","jack","Michael","Maria","Linda","Tony"};
-    private String[] data = {"Hello","Who's this?","I'm Tom","Oh, hello Tom","Hello Jerry",
-        "I want to visit your home","No,never!","Please~"};
-    private List<MessageItem> messageList = new ArrayList<>();
+    private static final String TAG = "IMDBG";
+    private RecyclerView messagesView;
+    private MessageAdapter adapter;
+    private List<Message> messageList = new ArrayList<>();
+
     private String friendName;
     private long friendId;
 
@@ -52,28 +52,41 @@ public class MessageActivity extends AppCompatActivity {
         topBar.setTitle(friendName);
 
         initMessageList();
-        RecyclerView recycler = findViewById(R.id.message_recycler_view);
+        messagesView = findViewById(R.id.message_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recycler.setLayoutManager(layoutManager);
-        MessageAdapter adapter = new MessageAdapter(messageList);
-        recycler.setAdapter(adapter);
-
+        messagesView.setLayoutManager(layoutManager);
+        adapter = new MessageAdapter(messageList);
+        messagesView.setAdapter(adapter);
 
         Button send = findViewById(R.id.message_send);
         final EditText message = findViewById(R.id.message_input_text);
 
+
         send.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(MessageActivity.this, message.getText().toString(), Toast.LENGTH_SHORT).show();
+                String text = message.getText().toString();
+                if(!"".equals(text)){
+                    Message msg = new Message(12231,text,"Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
+                    messageList.add(msg);
+                    adapter.notifyItemInserted(messageList.size()-1);
+                    messagesView.scrollToPosition(messageList.size()-1);
+                    message.setText("");
+                }
             }
         });
     }
 
     private void initMessageList(){
-        for(int i=0;i<friendNames.length;i++){
-            MessageItem item = new MessageItem(data[i],"aaa", friendNames[i],"test",R.drawable.receive_tmp);
-            messageList.add(item);
-        }
+        Message msg1 = new Message(12231,"hello","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_RECEIVE);
+        Message msg2 = new Message(3211,"who's this?","Jerry",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
+        Message msg3 = new Message(12231,"hello,hh, 阿斯达所啊注册记录卡数量单价垃圾群文件而　奥斯卡的骄傲就是的奋斗的风格水电费","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_RECEIVE);
+        Message msg4 = new Message(12231,"hello,hh, 怕不是个事还是电话走线槽号和期望空间哈斯卡活动卡萨丁很快就走线槽你爸妈说的","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
+        //Message msg5 = new Message(12231,"hello,hh, lalaalallalalalalalalalalalalalalalalalalalala","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_HISTORY);
+        messageList.add(msg1);
+        messageList.add(msg2);
+        messageList.add(msg3);
+        messageList.add(msg4);
+        //messageList.add(msg5);
     }
 }
