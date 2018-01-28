@@ -63,7 +63,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 LinearLayout send = holder.sendLayout;
                 send.setVisibility(View.VISIBLE);
                 ((TextView)send.findViewById(R.id.message_send_text)).setText(message.getText());
-                ((ImageView)send.findViewById(R.id.message_send_user_image)).setImageResource(message.getMyImage());
+                ((ImageView)send.findViewById(R.id.message_send_user_image)).setImageResource(message.getUserImage());
                 break;
             case Message.MESSAGE_RECEIVE:
                 holder.sendLayout.setVisibility(View.GONE);
@@ -71,16 +71,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 LinearLayout receive = holder.receiveLayout;
                 receive.setVisibility(View.VISIBLE);
                 ((TextView)receive.findViewById(R.id.message_receive_text)).setText(message.getText());
-                ((ImageView)receive.findViewById(R.id.message_receive_user_image)).setImageResource(message.getFriendImage());
+                ((ImageView)receive.findViewById(R.id.message_receive_user_image)).setImageResource(message.getUserImage());
                 break;
             case Message.MESSAGE_HISTORY:
                 holder.sendLayout.setVisibility(View.GONE);
                 holder.receiveLayout.setVisibility(View.GONE);
                 LinearLayout history = holder.historyLayout;
                 history.setVisibility(View.VISIBLE);
+                message = (HistoryMessage) message;
                 ((TextView)history.findViewById(R.id.message_item_friend_text)).setText(message.getText());
-                ((TextView)history.findViewById(R.id.message_item_friend_name)).setText(message.getFriendName());
-                ((ImageView)history.findViewById(R.id.message_item_photo)).setImageResource(message.getFriendImage());
+                ((TextView)history.findViewById(R.id.message_item_friend_name)).setText(((HistoryMessage) message).getUserName());
+                ((ImageView)history.findViewById(R.id.message_item_photo)).setImageResource(message.getUserImage());
                 break;
             default:
                 Log.d(TAG, "setMessage: wrong message type");

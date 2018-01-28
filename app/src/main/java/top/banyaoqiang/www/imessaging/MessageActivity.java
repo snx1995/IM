@@ -67,8 +67,8 @@ public class MessageActivity extends AppCompatActivity {
             public void onClick(View v){
                 String text = message.getText().toString();
                 if(!"".equals(text)){
-                    Message msg = new Message(12231,text,"Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
-                    messageList.add(msg);
+                    SentMessage sm = new SentMessage(text, R.drawable.send_tmp);
+                    messageList.add(sm);
                     adapter.notifyItemInserted(messageList.size()-1);
                     messagesView.scrollToPosition(messageList.size()-1);
                     message.setText("");
@@ -78,15 +78,16 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     private void initMessageList(){
-        Message msg1 = new Message(12231,"hello","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_RECEIVE);
-        Message msg2 = new Message(3211,"who's this?","Jerry",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
-        Message msg3 = new Message(12231,"hello,hh, 阿斯达所啊注册记录卡数量单价垃圾群文件而　奥斯卡的骄傲就是的奋斗的风格水电费","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_RECEIVE);
-        Message msg4 = new Message(12231,"hello,hh, 怕不是个事还是电话走线槽号和期望空间哈斯卡活动卡萨丁很快就走线槽你爸妈说的","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_SEND);
-        //Message msg5 = new Message(12231,"hello,hh, lalaalallalalalalalalalalalalalalalalalalalala","Tom",R.drawable.receive_tmp,R.drawable.send_tmp,Message.MESSAGE_HISTORY);
-        messageList.add(msg1);
-        messageList.add(msg2);
-        messageList.add(msg3);
-        messageList.add(msg4);
-        //messageList.add(msg5);
+        String[] data = {"hello","你好～","你是？","很高兴见到你","我也是","拜拜","再见","哈哈","呵呵"};
+        for(int i=0;i<data.length;i++){
+            if(i%2==0){
+                ReceivedMessage rm = new ReceivedMessage(data[i],R.drawable.receive_tmp);
+                messageList.add(rm);
+            }
+            else{
+                SentMessage sm = new SentMessage(data[i],R.drawable.send_tmp);
+                messageList.add(sm);
+            }
+        }
     }
 }

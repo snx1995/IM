@@ -15,9 +15,8 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/test_login"
@@ -37,9 +36,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/test_message"
@@ -49,8 +47,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
         <Button
-            android:id="@+id/test_"
-            android:text="@string/main_activity"
+            android:id="@+id/test_launcher"
+            android:text="@string/start_activity"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"

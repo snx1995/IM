@@ -18,6 +18,15 @@ public class TestActivity extends AppCompatActivity {
         Button message = findViewById(R.id.test_message);
         Button main = findViewById(R.id.test_main);
         Button web = findViewById(R.id.test_url);
+        Button launcher = findViewById(R.id.test_launcher);
+
+        launcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestActivity.this, LauncherActivity.class);
+                startActivity(intent);
+            }
+        });
 
         final EditText urlInput = findViewById(R.id.test_url_input);
 

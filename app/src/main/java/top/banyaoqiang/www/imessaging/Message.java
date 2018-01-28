@@ -9,43 +9,68 @@ public class Message {
     public static final int MESSAGE_RECEIVE = 1;
     public static final int MESSAGE_HISTORY = 2;
 
-    private int friendId;
     private String text;
-    private String friendName;
-    private int friendImage;
+    private int userImage;
     private int messageType;
-    private int myImage;
 
-    public Message(int friendId, String text, String friendName, int friendImage, int myImage, int messageType){
-        this.friendId =friendId;
-        this.text = text;
-        this.friendName = friendName;
-        this.friendImage = friendImage;
-        this.messageType = messageType;
-        this.myImage = myImage;
+    public Message(){
+        this.messageType = 3;
     }
 
-    public int getFriendId() {
-        return friendId;
+    public Message(String text, int userImage,int messageType){
+        this.messageType = messageType;
+        this.text = text;
+        this.userImage = userImage;
     }
 
     public String getText() {
         return text;
     }
 
-    public String getFriendName() {
-        return friendName;
-    }
-
-    public int getFriendImage() {
-        return friendImage;
+    public int getUserImage() {
+        return userImage;
     }
 
     public int getMessageType() {
         return messageType;
     }
+}
 
-    public int getMyImage() {
-        return myImage;
+class SentMessage extends Message{
+
+    public SentMessage(String text,int userImage){
+        super(text,userImage,Message.MESSAGE_SEND);
+    }
+}
+
+class ReceivedMessage extends Message{
+
+    public ReceivedMessage(String text, int userImage){
+        super(text,userImage,Message.MESSAGE_RECEIVE);
+    }
+}
+
+class HistoryMessage extends Message{
+    private String userName;
+    private int userId;
+    private int count;
+
+    public HistoryMessage(String text, int userImage,String userName, int userId, int count) {
+        super(text, userImage, Message.MESSAGE_HISTORY);
+        this.userName = userName;
+        this.userId = userId;
+        this.count = count;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
