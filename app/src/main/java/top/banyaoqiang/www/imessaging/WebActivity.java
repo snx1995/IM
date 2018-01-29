@@ -18,7 +18,7 @@ public class WebActivity extends AppCompatActivity {
         String url = intent.getStringExtra("http_url");
         Log.d("IMDBG", "onCreate: "+url);
         WebView webview = findViewById(R.id.web);
-//        webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setJavaScriptEnabled(true);
         webview.setWebViewClient(new WebViewClient());
         webview.loadUrl("http://"+url);
     }

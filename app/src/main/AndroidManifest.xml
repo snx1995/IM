@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"
             android:theme="@style/FullScreen"/>
-        <activity android:name=".WebActivity" />
+        <activity android:name=".WebActivity"
+            android:theme="@style/FullScreen"/>
         <activity android:name=".MessageActivity" />
         <activity android:name=".TestActivity">
             <intent-filter>
