@@ -27,6 +27,18 @@
     <string name="user_id">帐号</string>
     <string name="password">密码</string>
     <string name="forget_your_password">忘记密码？</string>
+    <string name="complete_test">汇总调试</string>
+    <string name="find_friend">查找好友</string>
+    <string name="history_records">历史记录</string>
+    <string name="info_detail">详细信息</string>
+    <string name="user_name">昵称：</string>
+    <string name="im_id">IM号：</string>
+    <string name="user_sex">性别：</string>
+    <string name="user_age">年龄：</string>
+    <string name="user_email">邮箱：</string>
+    <string name="user_intro">简介：</string>
+    <string name="send_message">发送消息</string>
+    <string name="intro_tmp">大家好，我是TOM的爸爸</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

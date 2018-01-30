@@ -19,6 +19,15 @@ public class TestActivity extends AppCompatActivity {
         Button main = findViewById(R.id.test_main);
         Button web = findViewById(R.id.test_url);
         Button launcher = findViewById(R.id.test_launcher);
+        Button addressBook = findViewById(R.id.test_address_book_btn);
+
+        addressBook.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TestActivity.this, AddressBookActivity.class);
+                startActivity(intent);
+            }
+        });
 
         launcher.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +53,8 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(TestActivity.this, MessageActivity.class);
-                intent.putExtra("friend_name","哦哈哈哈哈哈哈哈哈哈哈哈哈额");
-                intent.putExtra("friend_id",1103255088);
+                intent.putExtra("user_name","哦哈哈哈哈哈哈哈哈哈哈哈哈额");
+                intent.putExtra("user_id",1103255088);
                 startActivity(intent);
             }
         });

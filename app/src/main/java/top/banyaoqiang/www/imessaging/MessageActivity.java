@@ -46,8 +46,8 @@ public class MessageActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        this.friendName = intent.getStringExtra("friend_name");
-        this.friendId = intent.getIntExtra("friend_id",-1);
+        this.friendName = intent.getStringExtra("user_name");
+        this.friendId = intent.getIntExtra("user_id",-1);
 
         topBar.setTitle(friendName);
 

@@ -7,6 +7,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/login_main_container"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_width="match_parent"
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/login_btn"
             android:layout_marginTop="20dp"
             android:textColor="#fff"
             android:textSize="18sp"
@@ -79,6 +81,13 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 
